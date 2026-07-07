@@ -1,0 +1,9 @@
+node_modules
+dist
+.vite
+*.local
+*.log
+asset-originals/
+photo_base.png
+证件照.png
+*.pdf

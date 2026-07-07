@@ -1,0 +1,146 @@
+% !TeX program = xelatex
+\documentclass{article}
+\usepackage[
+  paperwidth=595.3bp,
+  paperheight=841.9bp,
+  margin=0bp
+]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setmainfont{Microsoft YaHei}[BoldFont={Microsoft YaHei Bold}]
+\setCJKmainfont{Microsoft YaHei}[BoldFont={Microsoft YaHei Bold}]
+
+\definecolor{resumeDark}{HTML}{4F535E}
+\definecolor{resumeMuted}{HTML}{707175}
+\definecolor{resumeLight}{HTML}{D9DDE7}
+
+\newcommand{\RectAt}[5]{%
+  \path[fill=#5, draw=none]
+    ([xshift=#1bp,yshift=-#2bp]current page.north west)
+    rectangle ++(#3bp,-#4bp);
+}
+\newcommand{\TextAt}[4]{%
+  \node[anchor=base west, inner sep=0pt, outer sep=0pt]
+    at ([xshift=#1bp,yshift=-#2bp]current page.north west) {{#3 #4}};
+}
+\newcommand{\IconAt}[4]{%
+  \node[anchor=base west, inner sep=0pt, outer sep=0pt, text=resumeMuted]
+    at ([xshift=#1bp,yshift=-#2bp]current page.north west)
+    {{\fontsize{#3bp}{#3bp}\selectfont #4}};
+}
+\newcommand{\DiamondAt}[2]{%
+  \begin{scope}[shift={([xshift=#1bp,yshift=-#2bp]current page.north west)}]
+    \fill[resumeDark, rotate=45] (-3.2bp,-3.2bp) rectangle (3.2bp,3.2bp);
+  \end{scope}
+}
+\newcommand{\ImageAt}[5]{%
+  \node[anchor=north west, inner sep=0pt, outer sep=0pt]
+    at ([xshift=#1bp,yshift=-#2bp]current page.north west)
+    {\includegraphics[width=#3bp,height=#4bp]{#5}};
+}
+
+\newcommand{\NameFont}{\fontsize{24bp}{28bp}\selectfont\bfseries}
+\newcommand{\SectionFont}{\fontsize{11.1bp}{13bp}\selectfont\bfseries}
+\newcommand{\HeaderFont}{\fontsize{10.4bp}{13bp}\selectfont\bfseries}
+\newcommand{\BodyFont}{\fontsize{11.1bp}{15bp}\selectfont}
+\newcommand{\BodyBoldFont}{\fontsize{11.1bp}{15bp}\selectfont\bfseries}
+\newcommand{\ContactFont}{\fontsize{11.1bp}{15bp}\selectfont}
+\newcommand{\SectionTitle}[4]{#1\hspace{4.8bp}#2\hspace{4.8bp}#3\hspace{4.8bp}#4}
+
+\begin{document}
+\begin{tikzpicture}[remember picture, overlay]
+  % Top decorative bars.
+  \RectAt{-1.56}{14.64}{32.76}{20.04}{resumeDark}
+  \RectAt{40.56}{14.64}{557.76}{20.04}{resumeDark}
+
+  % Header.
+  \TextAt{45.0}{92.0}{\NameFont\color{resumeDark}}{汪\hspace{7.1bp}金}
+  \ImageAt{346.44}{60.96}{133.92}{151.80}{photo_resume.png}
+
+  \IconAt{46.3}{129.4}{13.0}{\faIcon{user}}
+  \TextAt{66.0}{129.4}{\ContactFont\color{resumeMuted}}{25岁}
+  \IconAt{44.8}{156.4}{14.0}{\faIcon{map-marker-alt}}
+  \TextAt{66.0}{156.4}{\ContactFont\color{resumeMuted}}{四川省南充市}
+  \IconAt{46.5}{183.4}{13.0}{\faIcon{phone-alt}}
+  \TextAt{66.0}{183.4}{\ContactFont\color{resumeMuted}}{15508069338}
+  \IconAt{44.7}{210.4}{12.6}{\faIcon{envelope}}
+  \TextAt{66.0}{210.4}{\ContactFont\color{resumeMuted}}{Wang1565104662@163.com}
+
+  \RectAt{37.15}{218.0}{518.75}{2.05}{resumeDark}
+
+  % Education section label.
+  \RectAt{8.40}{240.0}{6.00}{20.16}{resumeDark}
+  \RectAt{20.40}{240.0}{6.00}{20.16}{resumeDark}
+  \RectAt{31.20}{240.0}{6.00}{20.16}{resumeDark}
+  \RectAt{44.16}{240.0}{74.40}{20.16}{resumeDark}
+  \TextAt{52.7}{254.7}{\SectionFont\color{resumeLight}}{\SectionTitle{教}{育}{背}{景}}
+
+  \TextAt{45.8}{280.0}{\SectionFont\color{resumeDark}}{2025.9-2028.6}
+  \TextAt{152.3}{280.0}{\SectionFont\color{resumeDark}}{新疆大学}
+  \TextAt{234.8}{280.0}{\SectionFont\color{resumeDark}}{工业工程与管理（硕士研究生）}
+  \TextAt{45.8}{302.0}{\SectionFont\color{resumeDark}}{2018.9-2022.6}
+  \TextAt{152.3}{302.0}{\SectionFont\color{resumeDark}}{西南科技大学}
+  \TextAt{234.8}{302.0}{\SectionFont\color{resumeDark}}{工业工程（本科）}
+  \DiamondAt{51.3}{320.0}
+  \TextAt{66.8}{324.0}{\BodyFont\color{resumeDark}}{主修课程：基础工业工程、设施规划、生产计划与控制、质量管理、精益生产}
+
+  % Skills section label.
+  \RectAt{8.40}{348.0}{6.00}{20.16}{resumeDark}
+  \RectAt{20.40}{348.0}{6.00}{20.16}{resumeDark}
+  \RectAt{31.20}{348.0}{6.00}{20.16}{resumeDark}
+  \RectAt{44.16}{348.0}{74.40}{20.16}{resumeDark}
+  \TextAt{52.7}{362.7}{\SectionFont\color{resumeLight}}{\SectionTitle{专}{业}{技}{能}}
+
+  \DiamondAt{51.3}{380.0}
+  \TextAt{66.8}{384.0}{\BodyFont\color{resumeDark}}{IE/精益：工时测定、标准工时分析、流程写实、瓶颈识别、5S现场改善、看板与目视化管理}
+  \DiamondAt{51.3}{402.0}
+  \TextAt{66.8}{406.0}{\BodyFont\color{resumeDark}}{质量管理：质量改进项目推进（PDCA）、8D报告、供应商质量管理、质量追溯台账}
+  \DiamondAt{51.3}{424.0}
+  \TextAt{66.8}{428.0}{\BodyFont\color{resumeDark}}{工具软件：Office、Visio、AutoCAD、ERP/MES}
+
+  % Work section label.
+  \RectAt{8.04}{452.0}{6.00}{20.04}{resumeDark}
+  \RectAt{20.04}{452.0}{6.00}{20.04}{resumeDark}
+  \RectAt{30.96}{452.0}{6.00}{20.04}{resumeDark}
+  \RectAt{43.80}{452.0}{74.40}{20.04}{resumeDark}
+  \TextAt{52.3}{466.7}{\SectionFont\color{resumeLight}}{\SectionTitle{工}{作}{经}{历}}
+
+  \TextAt{43.9}{488.0}{\HeaderFont\color{resumeDark}}{2022.7 – 2024.1}
+  \TextAt{152.9}{488.0}{\HeaderFont\color{resumeDark}}{天津市特变电工变压器有限公司}
+  \TextAt{336.6}{488.0}{\HeaderFont\color{resumeDark}}{生产管理部（REFA 精益专员）}
+  \TextAt{64.9}{508.0}{\BodyFont\color{resumeDark}}{1、主导干变车间高压绕线、低压箔绕、浇注、装配等工序工时测定与标准工时建立，}
+  \TextAt{82.8}{526.0}{\BodyFont\color{resumeDark}}{完成焊接、装加气道等瓶颈工序分析，相关工序作业时间缩短约50\%。}
+  \TextAt{64.9}{544.0}{\BodyFont\color{resumeDark}}{2、推动匝数错误控制项目，设计自检、拍照留痕、班组复核、装配验证四层防错机制，}
+  \TextAt{82.8}{562.0}{\BodyFont\color{resumeDark}}{执行后匝数错误明显减少，措施固化为标准作业流程。}
+  \TextAt{64.9}{580.0}{\BodyFont\color{resumeDark}}{3、建立绕线工段技能矩阵与OJT培训体系，完善SOP及作业指导书，支撑新员工上岗培训。}
+  \TextAt{64.9}{598.0}{\BodyFont\color{resumeDark}}{4、主持铁芯质量提升项目，合格率99.08\%→99.74\%，减少57台返修，年节约约7.1万元。}
+
+  \TextAt{43.9}{628.0}{\HeaderFont\color{resumeDark}}{2024.8 – 2024.9}
+  \TextAt{152.9}{628.0}{\HeaderFont\color{resumeDark}}{川开电气有限公司}
+  \TextAt{273.6}{628.0}{\HeaderFont\color{resumeDark}}{工业工程中心（工业工程师）}
+  \TextAt{64.9}{648.0}{\BodyFont\color{resumeDark}}{1、完成KYN28A-12/K1线全工位流程写实，输出工时与人员配置数据，支撑周度复盘；}
+  \TextAt{82.9}{666.0}{\BodyFont\color{resumeDark}}{复盘期间K1线周排产42→79台，人效32.81\%→42.50\%。}
+  \TextAt{64.9}{684.0}{\BodyFont\color{resumeDark}}{2、编制中压产线看板物料可视化清单，处理货位异常，缺料异常减少约35\%。}
+
+  % Self-evaluation section label.
+  \RectAt{9.36}{712.0}{6.00}{20.16}{resumeDark}
+  \RectAt{21.36}{712.0}{6.00}{20.16}{resumeDark}
+  \RectAt{32.16}{712.0}{6.00}{20.16}{resumeDark}
+  \RectAt{45.12}{712.0}{74.40}{20.16}{resumeDark}
+  \TextAt{53.6}{726.7}{\SectionFont\color{resumeLight}}{\SectionTitle{自}{我}{评}{价}}
+
+  \DiamondAt{53.2}{748.0}
+  \TextAt{68.8}{752.0}{\BodyFont\color{resumeDark}}{本科工业工程专业，在特变电工、川开电气从事过IE改善与质量管理相关工作，}
+  \TextAt{68.8}{770.0}{\BodyFont\color{resumeDark}}{有生产现场实际经验，能适应一线工作节奏。}
+  \DiamondAt{53.2}{790.0}
+  \TextAt{68.8}{794.0}{\BodyFont\color{resumeDark}}{工业工程与管理硕士在读，熟悉工时测定、流程写实、PDCA、8D等方法，}
+  \TextAt{68.8}{812.0}{\BodyFont\color{resumeDark}}{关注AI与Agent在流程优化、数据分析和现场改善中的应用，具备持续学习意愿。}
+\end{tikzpicture}
+\end{document}
