@@ -1,18 +1,68 @@
-# 汪金个人作品集网站
+# Wang Jin Portfolio
 
-React + Vite 实现的个人作品集基础版，定位为精益工程师、IE 工程师、工业工程师。
+汪金个人作品集网站，基于 React + Vite 构建，定位为精益工程师 / IE 工程师 / 制造现场改善与质量管理方向的个人展示站。
 
-## 本地运行
+## Tech Stack
+
+- React 19
+- Vite 6
+- GSAP + ScrollTrigger
+- lucide-react
+- CSS animation
+
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 页面内容
+默认本地地址：
 
-- 全屏首页 Hero，包含视频背景、导航栏、大标题和联系按钮
-- 个人经历模块，包含人物图、个人介绍、联系方式和项目数据
-- 精选项目模块，使用大卡片展示项目图片和改善成果
-- 个人优势模块，使用能力卡片展示核心能力
-- 整屏底部联系方式模块
+```text
+http://127.0.0.1:5173/
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+构建产物输出到：
+
+```text
+dist/
+```
+
+## Deploy
+
+适合部署到 Vercel、腾讯云 CloudBase 静态网站托管或腾讯云 COS + CDN。
+
+Vercel / CloudBase 常用配置：
+
+```text
+Framework: Vite
+Build Command: npm run build
+Output Directory: dist
+```
+
+## Project Structure
+
+```text
+src/
+  main.jsx
+  styles.css
+public/
+  favicon.svg
+  assets/
+index.html
+package.json
+package-lock.json
+```
+
+## Notes
+
+- 项目为纯前端静态站，不需要后端服务。
+- 图片资源已转换为 WebP，以降低首屏和滚动加载压力。
+- WebGL 动态背景已移除，当前使用 CSS 深蓝工业科技风背景，兼顾稳定性与性能。
